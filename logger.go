@@ -1,16 +1,16 @@
-package log
+package logging
 
 import (
+	`github.com/pangum/pangu`
 	`github.com/storezhang/glog`
-	`github.com/storezhang/pangu`
 )
 
 func newLogger(config *pangu.Config) (logger glog.Logger, err error) {
-	panguConfig := new(panguConfig)
-	if err = config.Load(panguConfig); nil != err {
+	_panguConfig := new(panguConfig)
+	if err = config.Load(_panguConfig); nil != err {
 		return
 	}
-	log := panguConfig.Log
+	log := _panguConfig.Logging
 
 	opts := glog.NewOptions(glog.Skip(log.Skip))
 	switch log.Type {

@@ -1,6 +1,6 @@
-package log
+package logging
 
 type panguConfig struct {
 	// 日志配置
-	Log config `json:"log" yaml:"log" validate:"required"`
+	Logging config `json:"logging" yaml:"logging" xml:"logging" toml:"logging" validate:"required"`
 }
