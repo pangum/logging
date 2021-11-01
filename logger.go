@@ -3,9 +3,16 @@ package logging
 import (
 	`github.com/pangum/pangu`
 	`github.com/storezhang/glog`
+	`github.com/storezhang/simaqian`
 )
 
-func newLogger(config *pangu.Config) (logger glog.Logger, err error) {
+// Logger 日志简单包装
+type Logger struct {
+	simaqian.Logger
+}
+
+func newLogger(config *pangu.Config) (logger *Logger, err error) {
+	logger = new(Logger)
 	_panguConfig := new(panguConfig)
 	if err = config.Load(_panguConfig); nil != err {
 		return
@@ -21,7 +28,7 @@ func newLogger(config *pangu.Config) (logger glog.Logger, err error) {
 	case glog.TypeLogrus:
 		opts = append(opts, glog.Logrus())
 	}
-	logger, err = glog.New(opts...)
+	logger.Logger, err = glog.New(opts...)
 
 	return
 }
