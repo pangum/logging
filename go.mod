@@ -7,4 +7,4 @@ require (
 	github.com/storezhang/simaqian v0.0.3
 )
 
-// replace github.com/storezhang/glog => ../../storezhang/glog
+// replace github.com/storezhang/simaqian => ../../storezhang/glog
