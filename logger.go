@@ -2,7 +2,6 @@ package logging
 
 import (
 	`github.com/pangum/pangu`
-	`github.com/storezhang/glog`
 	`github.com/storezhang/simaqian`
 )
 
@@ -19,16 +18,16 @@ func newLogger(config *pangu.Config) (logger *Logger, err error) {
 	}
 	log := _panguConfig.Logging
 
-	opts := glog.NewOptions(glog.Skip(log.Skip))
+	opts := simaqian.NewOptions(simaqian.Skip(log.Skip))
 	switch log.Type {
-	case glog.TypeSystem:
-		opts = append(opts, glog.System())
-	case glog.TypeZap:
-		opts = append(opts, glog.Zap())
-	case glog.TypeLogrus:
-		opts = append(opts, glog.Logrus())
+	case simaqian.TypeSystem:
+		opts = append(opts, simaqian.System())
+	case simaqian.TypeZap:
+		opts = append(opts, simaqian.Zap())
+	case simaqian.TypeLogrus:
+		opts = append(opts, simaqian.Logrus())
 	}
-	logger.Logger, err = glog.New(opts...)
+	logger.Logger, err = simaqian.New(opts...)
 
 	return
 }
