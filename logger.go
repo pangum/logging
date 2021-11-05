@@ -16,18 +16,13 @@ func newLogger(config *pangu.Config) (logger *Logger, err error) {
 	if err = config.Load(_panguConfig); nil != err {
 		return
 	}
-	log := _panguConfig.Logging
+	logging := _panguConfig.Logging
 
-	opts := simaqian.NewOptions(simaqian.Skip(log.Skip))
-	switch log.Type {
-	case simaqian.TypeSystem:
-		opts = append(opts, simaqian.System())
-	case simaqian.TypeZap:
-		opts = append(opts, simaqian.Zap())
-	case simaqian.TypeLogrus:
-		opts = append(opts, simaqian.Logrus())
-	}
-	logger.Logger, err = simaqian.New(opts...)
+	logger.Logger, err = simaqian.New(
+		simaqian.Skip(logging.Skip),
+		simaqian.Levels(logging.Level),
+		simaqian.Types(logging.Type),
+	)
 
 	return
 }
