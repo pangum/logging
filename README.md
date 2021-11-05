@@ -6,5 +6,5 @@
 logging:
   level: debug
   type: zap
-  skip: 1
+  skip: 2
 ```
