@@ -1,6 +1,8 @@
 package logging
 
 import (
+	`sync`
+
 	`github.com/pangum/pangu`
 	`github.com/storezhang/simaqian`
 )
@@ -8,6 +10,9 @@ import (
 // Logger 日志简单包装，方便调用
 type Logger struct {
 	simaqian.Logger
+
+	// 限制只能使用指针
+	_ sync.Mutex
 }
 
 func newLogger(config *pangu.Config) (logger *Logger, err error) {
