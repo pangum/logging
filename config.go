@@ -7,4 +7,6 @@ type config struct {
 	Type string `default:"zap" json:"type" yaml:"type" toml:"type" validate:"required,oneof=zap system logrus zero"`
 	// 日志调用方法过滤层级
 	Skip int `default:"2" json:"skip" yaml:"skip" toml:"skip"`
+	// 调用堆栈层级
+	Stacktrace int `json:"stacktrace" yaml:"stacktrace" toml:"stacktrace" validate:"min=0"`
 }

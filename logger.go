@@ -27,6 +27,7 @@ func newLogger(config *pangu.Config) (logger *Logger, err error) {
 		simaqian.Skip(logging.Skip),
 		simaqian.Levels(logging.Level),
 		simaqian.Types(logging.Type),
+		simaqian.Stacktrace(logging.Stacktrace),
 	)
 
 	return
