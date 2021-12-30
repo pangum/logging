@@ -23,12 +23,15 @@ func newLogger(config *pangu.Config) (logger *Logger, err error) {
 	}
 	logging := _panguConfig.Logging
 
-	logger.Logger, err = simaqian.New(
+	options := simaqian.NewOptions(
 		simaqian.Skip(logging.Skip),
 		simaqian.Levels(logging.Level),
 		simaqian.Types(logging.Type),
-		simaqian.Stacktrace(logging.Stacktrace),
 	)
+	if nil != logging.Stacktrace && logging.Stacktrace.Enable() {
+		options = append(options, simaqian.Stacktrace(logging.Stacktrace.Skip, logging.Stacktrace.Stack))
+	}
+	logger.Logger, err = simaqian.New(options...)
 
 	return
 }
