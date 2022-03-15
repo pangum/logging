@@ -3,8 +3,8 @@ package logging
 import (
 	`sync`
 
+	`github.com/goexl/simaqian`
 	`github.com/pangum/pangu`
-	`github.com/storezhang/simaqian`
 )
 
 // Logger 日志简单包装，方便调用
