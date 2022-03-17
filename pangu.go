@@ -5,7 +5,5 @@ import (
 )
 
 func init() {
-	if err := pangu.New().Provides(newLogger); nil != err {
-		panic(err)
-	}
+	pangu.New().Musts(newLogger)
 }
