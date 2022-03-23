@@ -5,5 +5,5 @@ import (
 )
 
 func init() {
-	pangu.New().Musts(newLogger)
+	pangu.New().Dependence(newLogger)
 }
