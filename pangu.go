@@ -1,9 +1,9 @@
 package logging
 
 import (
-	`github.com/pangum/pangu`
+	"github.com/pangum/pangu"
 )
 
 func init() {
-	pangu.New().Dependence(newLogger)
+	pangu.New().Dependency(newLogger)
 }
