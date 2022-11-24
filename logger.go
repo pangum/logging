@@ -1,10 +1,9 @@
 package logging
 
 import (
-	`sync`
-
-	`github.com/goexl/simaqian`
-	`github.com/pangum/pangu`
+	"github.com/goexl/gox"
+	"github.com/goexl/simaqian"
+	"github.com/pangum/pangu"
 )
 
 // Logger 日志简单包装，方便调用
@@ -12,7 +11,7 @@ type Logger struct {
 	simaqian.Logger
 
 	// 限制只能使用指针
-	_ sync.Mutex
+	_ gox.CannotCopy
 }
 
 func newLogger(config *pangu.Config) (logger *Logger, err error) {
