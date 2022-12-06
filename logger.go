@@ -15,22 +15,26 @@ type Logger struct {
 }
 
 func newLogger(config *pangu.Config) (logger *Logger, err error) {
-	logger = new(Logger)
 	_panguConfig := new(panguConfig)
 	if err = config.Load(_panguConfig); nil != err {
 		return
 	}
-	logging := _panguConfig.Logging
+	_config := _panguConfig.Logging
 
-	options := simaqian.NewOptions(
-		simaqian.Skip(logging.Skip),
-		simaqian.Levels(logging.Level),
-		simaqian.Types(logging.Type),
-	)
-	if nil != logging.Stacktrace && logging.Stacktrace.Enable() {
-		options = append(options, simaqian.Stacktrace(logging.Stacktrace.Skip, logging.Stacktrace.Stack))
+	builder := simaqian.New().Skip(_config.Skip).Level(simaqian.ParseLevel(_config.Level))
+	if nil != _config.Stacktrace && _config.Stacktrace.Enable() {
+		builder.Stacktrace(_config.Stacktrace.Skip, _config.Stacktrace.Stack)
 	}
-	logger.Logger, err = simaqian.New(options...)
+
+	logger = new(Logger)
+	switch _config.Type {
+	case "zap":
+		logger.Logger, err = builder.Zap().Build()
+	case "logrus":
+		logger.Logger = builder.Logrus().Build()
+	case "builtin":
+		logger.Logger = builder.Builtin().Build()
+	}
 
 	return
 }
