@@ -2,6 +2,7 @@ package logging
 
 type config struct {
 	// 日志级别
+	// nolint: lll
 	Level string `default:"debug" json:"level" yaml:"level" xml:"level" toml:"level" validate:"oneof=debug info warn error fatal"`
 	// 日志类型
 	Type typ `default:"zap" json:"type" yaml:"type" toml:"type" validate:"required,oneof=zap builtin logrus zero"`
