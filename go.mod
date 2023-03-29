@@ -3,7 +3,7 @@ module github.com/pangum/logging
 go 1.19
 
 require (
-	github.com/goexl/simaqian v0.2.4
+	github.com/goexl/simaqian v0.2.5
 	github.com/pangum/pangu v0.3.1
 )
 
