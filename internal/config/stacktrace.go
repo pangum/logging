@@ -1,6 +1,6 @@
-package logging
+package config
 
-type stacktrace struct {
+type Stacktrace struct {
 	// 是否开启
 	Enabled *bool `json:"enabled" yaml:"enabled" xml:"enabled" toml:"enabled"`
 	// 跳过层级
@@ -9,6 +9,6 @@ type stacktrace struct {
 	Stack int `json:"stack" yaml:"stack" xml:"stack" toml:"stack" validate:"min=0"`
 }
 
-func (s *stacktrace) Enable() bool {
+func (s *Stacktrace) Enable() bool {
 	return nil == s.Enabled || *s.Enabled
 }
