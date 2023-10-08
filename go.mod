@@ -3,7 +3,7 @@ module github.com/pangum/logging
 go 1.21
 
 require (
-	github.com/goexl/simaqian v0.2.7
+	github.com/goexl/simaqian v0.2.9
 	github.com/pangum/pangu v0.3.1
 )
 
@@ -24,6 +24,7 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/leodido/go-urn v1.2.2 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rs/xid v1.4.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
@@ -31,7 +32,6 @@ require (
 	github.com/urfave/cli/v2 v2.25.0 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	github.com/zs5460/art v0.2.0 // indirect
-	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.26.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect

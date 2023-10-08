@@ -8,7 +8,7 @@ type Loki struct {
 	// 批量操作
 	Batch *Batch `json:"batch" yaml:"batch" xml:"batch" toml:"batch"`
 	// 用户名
-	Username string `json:"username" yaml:"username" xml:"username" toml:"username" validate:"required_if=Password"`
+	Username string `json:"username" yaml:"username" xml:"username" toml:"username" validate:"required_with=Password"`
 	// 密码
-	Password string `json:"password" yaml:"password" xml:"password" toml:"password" validate:"required_if=Username"`
+	Password string `json:"password" yaml:"password" xml:"password" toml:"password" validate:"required_with=Username"`
 }

@@ -6,5 +6,5 @@ import (
 )
 
 func init() {
-	pangu.New().Dependency(plugin.newLogger)
+	pangu.New().Dependency(new(plugin.Creator).New)
 }
