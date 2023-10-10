@@ -23,8 +23,8 @@ func (c *Creator) New(config *pangu.Config) (logger simaqian.Logger, err error) 
 
 func (c *Creator) new(config *Config) (logger simaqian.Logger, err error) {
 	builder := simaqian.New().Level(simaqian.ParseLevel(config.Level))
-	if nil != config.Stacktrace && config.Stacktrace.Enable() {
-		builder.Stacktrace(config.Stacktrace.Skip, config.Stacktrace.Stack)
+	if nil != config.Stacktrace {
+		builder.Stacktrace(*config.Stacktrace)
 	}
 
 	switch config.Type {
