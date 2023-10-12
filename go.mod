@@ -4,7 +4,8 @@ go 1.21
 
 require (
 	github.com/go-resty/resty/v2 v2.9.1
-	github.com/goexl/simaqian v0.3.4
+	github.com/goexl/simaqian v0.3.7
+	github.com/pangum/http v0.2.3
 	github.com/pangum/pangu v0.3.2
 )
 
@@ -51,5 +52,3 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/goexl/simaqian => ../../goexl/simaqian

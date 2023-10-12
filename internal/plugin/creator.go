@@ -3,6 +3,7 @@ package plugin
 import (
 	"github.com/go-resty/resty/v2"
 	"github.com/goexl/simaqian"
+	"github.com/pangum/http"
 	"github.com/pangum/logging/internal/core"
 	"github.com/pangum/pangu"
 )
@@ -11,12 +12,12 @@ type Creator struct {
 	// 纯方法封装
 }
 
-func (c *Creator) New(config *pangu.Config, http *resty.Client) (logger simaqian.Logger, err error) {
+func (c *Creator) New(config *pangu.Config, http *http.Client) (logger simaqian.Logger, err error) {
 	wrapper := new(Wrapper)
 	if le := config.Load(wrapper); nil != le {
 		err = le
 	} else {
-		logger, err = c.new(&wrapper.Logging, http)
+		logger, err = c.new(&wrapper.Logging, http.Client)
 	}
 
 	return
