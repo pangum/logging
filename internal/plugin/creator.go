@@ -1,9 +1,8 @@
 package plugin
 
 import (
-	"github.com/go-resty/resty/v2"
+	"github.com/goexl/http"
 	"github.com/goexl/simaqian"
-	"github.com/pangum/http"
 	"github.com/pangum/logging/internal/core"
 	"github.com/pangum/pangu"
 )
@@ -17,13 +16,13 @@ func (c *Creator) New(config *pangu.Config, http *http.Client) (logger simaqian.
 	if le := config.Load(wrapper); nil != le {
 		err = le
 	} else {
-		logger, err = c.new(&wrapper.Logging, http.Client)
+		logger, err = c.new(&wrapper.Logging, http)
 	}
 
 	return
 }
 
-func (c *Creator) new(config *Config, http *resty.Client) (logger simaqian.Logger, err error) {
+func (c *Creator) new(config *Config, http *http.Client) (logger simaqian.Logger, err error) {
 	builder := simaqian.New().Level(simaqian.ParseLevel(config.Level))
 	if nil != config.Stacktrace {
 		builder.Stacktrace(*config.Stacktrace)
