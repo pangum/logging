@@ -3,9 +3,10 @@ module github.com/pangum/logging
 go 1.21
 
 require (
-	github.com/goexl/http v0.0.6
+	github.com/goexl/exc v0.0.5
+	github.com/goexl/gox v0.3.8
 	github.com/goexl/simaqian v0.4.0
-	github.com/pangum/pangu v0.3.2
+	github.com/pangum/pangu v0.3.3
 )
 
 require (
@@ -19,9 +20,8 @@ require (
 	github.com/go-resty/resty/v2 v2.9.1 // indirect
 	github.com/goexl/baozheng v0.0.1 // indirect
 	github.com/goexl/env v0.0.2 // indirect
-	github.com/goexl/exc v0.0.5 // indirect
 	github.com/goexl/gfx v0.1.7 // indirect
-	github.com/goexl/gox v0.3.8 // indirect
+	github.com/goexl/http v0.0.6 // indirect
 	github.com/goexl/mengpo v0.2.4 // indirect
 	github.com/goexl/xiren v0.0.5 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
