@@ -5,7 +5,7 @@ toolchain go1.23.4
 
 require (
 	github.com/goexl/exc v0.0.5
-	github.com/goexl/gox v1.8.9
+	github.com/goexl/gox v1.9.2
 	github.com/goexl/simaqian v0.4.0
 	github.com/pangum/pangu v1.5.7
 )
